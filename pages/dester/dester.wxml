@@ -1,0 +1,11 @@
+<!-- 房源登记 -->
+<view class='max_service'>
+   <view class='service_img'>
+    <image src='{{tu_img}}' mode="widthFix"></image>
+  </view> 
+</view>
+
+
+
+
+

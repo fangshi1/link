@@ -1,0 +1,155 @@
+<!--我的 teler.wxml-->
+<view class='max_body_k' style='height:{{body_height}}'>
+<include src="/template/getUserInfo.wxml" />
+<!-- /自定义授权弹框 -->
+<view class='personal'>
+  <view class='header_now'>
+    <view class='header_left'>
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
+      <view class='header_right'><open-data type="userNickName" lang="zh_CN"></open-data></view>
+    <button class='header_suaxin' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <image src='../../images/shuaxin.jpg'></image>
+      {{personInfoname}}
+    </button>
+    <view class='fengxiang'>我的分享码：{{sharing}}</view>
+    <view class='fengxiang' style='display: {{user_disp}};'>姓名：{{user_name}}</view>
+    <view class='fengxiang' style='display: {{user_disp}};'>电话：{{user_phone}}</view>
+    <view class='fengxiang'>入驻：{{user_enter}}</view>
+  </view>
+   <view class='qingkong' bindtap='syncs'>清理缓存</view>
+  <view class='category'>
+    <view class='category_list' id='1' data-text='买房' bindtap='submission'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_03.png'></image>
+      </view>
+      <text>买房委托</text>
+    </view>
+    <view class='category_list' id='2' data-text='卖房' bindtap='submission'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_05.png'></image>
+      </view>
+      <text>卖房委托</text>
+    </view>
+    <view class='category_list' id='3' data-text='租房' bindtap='submission'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_07.png'></image>
+      </view>
+      <text>租房委托</text>
+    </view>
+
+    <view class='category_list' id='4' data-text='出租' bindtap='submission'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_12.png'></image>
+      </view>
+      <text>出租委托</text>
+    </view>
+
+    <view class='category_list' bindtap='collection'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_13.png'></image>
+      </view>
+      <text>个人收藏</text>
+    </view>
+
+    <view class='category_list' bindtap='destnow'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_14.png'></image>
+      </view>
+      <text>购房流程</text>
+    </view>
+    <!-- 列 -->
+    <view class='category_list' id='0' bindtap='about_list'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_17.png'></image>
+      </view>
+      <text>我的分享</text>
+    </view>
+    <!-- 列 -->
+    <!-- 列 -->
+    <view class='category_list' bindtap='level_my'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_16.png'></image>
+      </view>
+      <text>个人购买</text>
+    </view>
+    <!-- 列 -->
+    <!-- 列 -->
+    <view class='category_list' bindtap='level_xianxia'>
+      <view class='category_list_img'>
+        <image src='../../images/pw_15.png'></image>
+      </view>
+      <text>交易记录</text>
+    </view>
+    <!-- 列 -->
+  </view>
+  <view class='list_term'>
+    <view class='term_text' id='{{index}}' wx:for="{{lister}}" wx:key='list' bindtap='about_list'>
+      <!-- term_text_text -->
+      <text class="{{index == about ? 'term_text_text' : ''}}">{{item.name}}</text>
+    </view>
+  </view>
+  <!-- 我的分享 -->
+  <view class='shop_list' style='display: {{about_shop1}};'>
+    <!-- 产品渲染区 -->
+  <view wx:for="{{shuju}}" wx:key='kan' wx:for-item="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:key='kan' wx:for-item="lift" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text' wx:if="{{list.rent=='1'}}">
+        <text class='may'>{{list.price}} 元/月</text>
+      </view>
+      <view class='right_text' wx:else >
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice*10000}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+<view class='jiazhaihto' bindtap='dianjijiazai' style='display: {{dianjiyichan}};'>
+  {{jiazaigenduo}}
+</view>
+<view class='shujuyuan' style='display: {{shujuyuan}};'>
+暂无分享记录
+</view>
+  </view>
+<!-- /我的分享 -->
+<!-- 成交记录 -->
+  <view class='record' style='display: {{about_shop2}};'>
+    <!-- 记录列表 -->
+    <view class='record_list' id='{{item.id}}' bindtap='detailed_xianxia' wx:for='{{shuju_about}}' wx:key="{{list}}">
+      <view class='record_list_text'>
+        <view class='record_list_text_title'>{{item.houses_title}}</view>
+        <view class='record_list_text_ico'><image class='arrow' src='../../images/right.png'></image></view>
+      </view>
+      <view class='record_list_time'>
+        {{item.date}}
+      </view>
+    </view>
+ <!-- bindtap='dianjijiazai_about' 点击加载更多 -->
+    <view class='jiazhaihto' style='display: {{dianjiyichan_about}};'>
+      {{jiazaigenduo_about}}
+    </view>
+    <view class='shujuyuan' style='display: {{shujuyuan_about}};'>
+    暂无交易记录
+    </view>
+  </view>
+<!-- /成交记录 -->
+</view>
+  
+
+</view>

@@ -1,0 +1,67 @@
+<!--pages/chaxun/chaxun.wxml  查询-->
+<view class='query_bar'>
+  <view class='query_list_left' bindtap='suoso_on'>
+    <icon type="search" size="20" color="#000"/>
+  </view>
+  <view class='query_list_centen' data-id='{{kle}}' bindtap='dianji'>
+    <view class='centen_text'>{{fangyuan}}</view>
+    <view class='centen_img'><image src='../../images/{{tupian}}.png'></image></view>
+  </view>
+  <view class='query_list_right'>
+    <input placeholder='请输入小区名称' bindinput='xiaoqu' value='{{baval}}' ></input>
+  </view>
+</view>
+<view class='centen_text_list {{tupian}}'>
+    <view class='centen_text_list_box'>
+      <view class='centen_text_list_beijin'>
+        <image src='../../images/f_03.png'></image>
+      </view>
+      <view class='centen_text_list_lows'>
+        <view wx:for='{{pres}}' wx:key='kan' data-id='{{index}}' class='list_lows_title' bindtap='cx_xiang' style="{{index == id?'color:#0fdb44':'color:#222'}}" data-text='{{item.preX}}'>{{item.preX}}</view>
+
+      </view>
+      
+    </view>
+</view> 
+ <!-- 精美租房 -->
+<view class='shop_list'>
+  <!-- 产品渲染区 -->
+  <view wx:for="{{shuju}}" wx:key='kan' wx:for-item="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:key='kan' wx:for-item="lift" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text' wx:if="{{list.rent=='1'}}">
+        <text class='may'>{{list.price*10000}} 元/月</text>
+      </view>
+      <view class='right_text' wx:else >
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<!-- /精美租房 -->
+ <!-- <view class='sanchu'>删除历史记录</view> -->
+ <!-- <view class='shuju_null' style='display: none;'>
+  <image src='../../images/null.png'></image>
+</view>   -->
+<view class='jiazhaihto' bindtap='dianjijiazai' style='display: {{dianjiyichan}};'>
+  {{jiazaigenduo}}
+</view>
+<view class='shujuyuan' style='display: {{shujuyuan}};'>
+暂无数据
+</view>

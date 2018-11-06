@@ -1,0 +1,53 @@
+<!-- 房源登记 -->
+<view class='max_service'>
+  <view class='service_text'>
+    <view class='text_list'>
+      <view class='lift_left'><text>姓名 :</text></view>
+      <view class='lift_right'><input bindinput='xm' type='text' placeholder='请输入您的姓名'></input></view>
+    </view>
+     <view class='text_list'>
+      <view class='lift_left'><text>电话 :</text></view>
+      <view class='lift_right'>
+        <input bindinput='dh' type='text' placeholder='请输入您的电话'></input>
+      </view>
+    </view>
+   <view class='text_list' style="display:none">
+      <view class='lift_left'><text>微信 :</text></view>
+      <view class='lift_right'><input bindinput='wx' type='text' placeholder='请输入您的微信'></input></view>
+    </view>
+    <view class='text_list_xuqu'>
+      <view class='xuqu_left'><text>需求 :</text></view>
+      <view class='xuqu_right' bindtap='xuangzhe'>
+        <text>{{will}}</text>
+        <!-- <image src='../../images/form_xia.jpg'></image> -->
+      </view>
+    </view>
+
+    <view class='xuqu_right_on' style='display: {{xiang}}'>
+        <view class='on_left'>
+          <text bindtap='tiaojian' id='1' data-text='买房'>买房</text>
+          <text bindtap='tiaojian' id='2' data-text='卖房'>卖房</text>
+          <text bindtap='tiaojian' id='3' data-text='租房'>租房</text>
+          <text bindtap='tiaojian' id='4' data-text='出租'>出租</text>         
+        </view>
+        <view class='on_right'>
+          <image src='../../images/form_shang.jpg'></image>
+        </view>
+      </view>
+    <view class='loate' >
+      <view class='loate_left'>
+        <text>详情 :</text>
+      </view>
+      <view class='loate_right' bindtap='jang'>
+        <textarea  bindinput='xq' style='display:{{jang}};' placeholder='请输入您的详情信息' value='{{xq}}'></textarea>
+      </view>
+    </view>
+    <view class='tijiao' bindtap='fabu'>发布需求</view>
+  </view>
+
+</view>
+
+
+
+
+

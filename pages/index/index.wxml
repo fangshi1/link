@@ -1,0 +1,322 @@
+<!-- 城市选择 -->
+<view class='max_body_k' style='height:{{body_height}}'>
+<include src="/template/getUserInfo.wxml" />
+<!-- /自定义授权弹框 -->
+
+<view class='quanbu' style='display: {{xianshi}};'>
+  <view class="searchLetter touchClass">
+  
+    <view wx:for="{{searchLetter}}" style="height:{{itemH}}px;line-height:{{itemH}}px;" wx:key="index" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">{{item.name}}</view>
+  </view>
+  
+  <block wx:if="{{isShowLetter}}">
+    <view class="showSlectedLetter">
+      {{showLetter}}
+    </view>
+  </block>
+  <!-- <view>当前选择城市：{{city}}</view> -->
+  <scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
+    <view class='fugai'>
+      <view class='dinwei'>
+        <view class='dinwei_list' data-text='{{dinwei_city}}' bindtap='dinwei'>
+        <image src='../../images/location.png' style='float: left;margin-left:20rpx;'></image>
+        <text>{{dinwei_city}}</text>
+        </view>
+        <view class='dinwei_lists' bindtap='huoqu'>
+        <image src='../../images/refresh.png' style='float: right;margin-right:15px;'></image>
+        </view>
+      </view>
+      <view class='remen'>
+          <view class='rm_text'>热门城市</view>
+          <view class='rm_list'>
+              <view wx:for="{{horts}}" data-text="{{item.name}}" data-idx="{{index}}" wx:key="list" class="list_li {{currentTab==index ? 'kuang' : ''}}" id='{{item.id}}' bindtap='remen'>{{item.name}}</view>
+          </view>
+      </view>
+    </view>
+    <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+      <view class="item_letter">{{item.initial}}</view>
+      <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-city="{{ct.city}}" bindtap="bindCity">
+        {{ct.city}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='max_body' style='display: {{body_cen}};'>
+<view class='daohang'>
+  <view class='dao_left' bindtap='xuanzhe'>
+    {{city}}
+  </view>
+  <view class='dao_right' bindtap='sosuo'>
+    <icon type="search" size='16' color="#333" />
+  </view>
+</view>
+<!-- /城市选择 -->
+<!-- 轮播区或者banner区 -->
+<view class='header'>
+  <swiper autoplay="{{autoplay}}" class="swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500"> 
+      <block wx:for="{{loat.banner}}" wx:key="index">    
+        <swiper-item>    
+          <image src="{{item.pic}}" class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </block>    
+  </swiper> 
+</view>
+<!-- /轮播区或者banner区 -->
+
+<!-- 导航区 -->
+<view class='house_list'>
+  <view class='list_lie' data-text='新房' bindtap='listpage'>
+    <image src='../../images/icon10.png' mode="widthFix"></image>
+    <text>新房</text>
+  </view>
+  <view class='list_lie' data-text='二手房' bindtap='listpage'>
+    <image src='../../images/icon11.png' mode="widthFix"></image>
+    <text>二手房</text>
+  </view>
+  <view class='list_lie' data-text='租房' bindtap='listpage'>
+    <image src='../../images/icon12.png' mode="widthFix"></image>
+    <text>租房</text>
+  </view>
+  <view class='list_lie' data-text='房源登记' bindtap='register'>
+    <image src='../../images/icon13.png' mode="widthFix"></image>
+    <text>房源登记</text>
+  </view>
+  <view class='list_lie' bindtap='subordinate'>
+    <image src='../../images/staff.png' mode="widthFix"></image>
+    <text>员工风采</text>
+  </view>
+  <view class='list_lie' id='1' data-text='买房' bindtap='submission'>
+    <image src='../../images/buy.png' mode="widthFix"></image>
+    <text>求购</text>
+  </view>
+  <view class='list_lie' id='3' data-text='租房' bindtap='submission'>
+    <image src='../../images/lease.png' mode="widthFix"></image>
+    <text>求租</text>
+  </view>
+  <view class='list_lie' data-text='申请入驻' bindtap='{{admission}}'>
+    <image src='../../images/icon.png' mode="widthFix"></image>
+    <text>{{admission_text}}</text>
+  </view>
+</view>
+<!-- /导航区 -->
+
+<!-- 特权看房 -->
+<view class='tequang'>
+  <view class='te_img' bindtap='shop_dian' id='{{loat.jiaodian[0].focus_id}}'>
+    <image src='{{loat.jiaodian[0].focus_pic}}'></image>
+  </view>
+  <view class='te_xiang'></view>
+   <view class='te_img' bindtap='shop_dian' id='{{loat.jiaodian[1].focus_id}}'>
+    <image src='{{loat.jiaodian[1].focus_pic}}'></image>
+  </view>
+</view>
+<!-- /特权看房 -->
+<!-- 代理人 -->
+
+<view class='agents_list'>
+  <view class='agents_list_max'>
+    <view class='agents_lie' data-text='{{jieko_pick1.id}}' bindtap='agents'>
+      <image src='{{jieko_pick1.avatarurl}}' mode="widthFix"></image>
+      <text>{{jieko_pick1.user}}</text>
+    </view>
+    <view class='agents_lie' data-text='{{jieko_pick2.id}}' bindtap='agents'>
+      <image src='{{jieko_pick2.avatarurl}}' mode="widthFix"></image>
+      <text>{{jieko_pick2.user}}</text>
+    </view>
+    <view class='agents_lie' data-text='{{jieko_pick3.id}}' bindtap='agents'>
+      <image src='{{jieko_pick3.avatarurl}}' mode="widthFix"></image>
+      <text>{{jieko_pick3.user}}</text>
+    </view>
+    <view class='agents_lie' data-text='{{jieko_pick4.id}}' bindtap='agents'>
+      <image src='{{jieko_pick4.avatarurl}}' mode="widthFix"></image>
+      <text>{{jieko_pick4.user}}</text>
+    </view>
+  </view> 
+  <view class='agents_list_lisk'>
+    <view class='agents_list_img' data-text='{{jieko_pick1.id}}' bindtap='agents'>
+      <image class='' src='../../images/level3.png' mode="widthFix"></image>
+    </view>
+    <view class='agents_list_img' data-text='{{jieko_pick2.id}}' bindtap='agents'>
+      <image class='' src='../../images/level2.png' mode="widthFix"></image>
+    </view>
+    <view class='agents_list_img' data-text='{{jieko_pick3.id}}' bindtap='agents'>
+      <image class='' src='../../images/level1.png' mode="widthFix"></image>
+    </view>
+    <view class='agents_list_img' data-text='{{jieko_pick4.id}}' bindtap='agents'>
+      <image class='' src='../../images/level0.png' mode="widthFix"></image>
+    </view>
+  </view>
+  <view class='agents_hort'>
+    <text bindtap='agents' data-text='1'>更多代理人 >> </text>
+  </view>
+</view>
+<!-- /代理人 -->
+
+<!-- 标题栏 -->
+<view class='list_term' data-text='二手房' bindtap='listpage'>
+  <view class='term_u'></view>
+  <view class='term_text'>精选二手房</view>
+  <view class='term_more'>更多 <image class='arrow' src='../../images/right.png'></image></view>
+</view>
+<!-- /标题栏 -->
+
+<!-- 精选二手房 -->
+<view class='shop_list'>
+
+  <!-- 产品渲染区 -->
+  <view wx:for="{{loat.es}}" wx:for-item="list" wx:key="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text'>
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<view class='zhangwu' style='display: {{shujuan1}};'>暂无数据</view>
+<view class='xiangtiaos'></view>
+
+<!-- /精选二手房 -->
+<!-- 标题栏 -->
+<view class='list_term' data-text='新房' bindtap='listpage'>
+  <view class='term_u'></view>
+  <view class='term_text'>精选新房</view>
+  <view class='term_more'>更多 <image class='arrow' src='../../images/right.png'></image></view>
+</view>
+<!-- 精选新房 -->
+<view class='shop_list'>
+  <!-- 产品渲染区 -->
+  <view wx:for="{{loat.xf}}" wx:key="{{list}}" wx:for-item="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text'>
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<view class='zhangwu' style='display: {{shujuan2}};'>暂无数据</view>
+<view class='xiangtiaos'></view>
+<!-- /精选新房 -->
+<!-- 标题栏 -->
+<view class='list_term' data-text='租房' bindtap='listpage'>
+  <view class='term_u'></view>
+  <view class='term_text'>精选租房</view>
+  <view class='term_more'>更多 <image class='arrow' src='../../images/right.png'></image></view>
+</view>
+<!-- 精美租房 -->
+<view class='shop_list'>
+  <!-- 产品渲染区 -->
+  <view wx:for="{{loat.zf}}" wx:for-item="list" wx:key="{{list}}" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+       <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text'>
+        <text class='may'>{{list.price}} 元/月</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<view class='zhangwu' style='display: {{shujuan3}};'>暂无数据</view>
+<view class='xiangtiaos'></view>
+<!-- 标题栏 -->
+<view class='list_term' style='display: {{load_hort0}};'>
+  <view class='term_u'></view>
+  <view class='term_text'>代理房源</view>
+  <!-- <view class='term_more'>更多 <image class='arrow' src='../../images/right.png'></image></view> -->
+</view>
+<!-- /标题栏 -->
+<!-- 精选二手房 -->
+<view class='shop_list'>
+
+  <!-- 产品渲染区 -->
+  <view wx:for="{{shuju}}" wx:for-item="list" wx:key="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text'>
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<view class='load_hort' bindtap='load_hort' style='display: {{load_hort1}};'>点击加载更多</view>
+<view class='load_hort' bindtap='load_hort' style='display: {{load_hort2}};'>已加载全部</view>
+<view class='xiangtiaos'></view>
+<!-- /精选二手房 -->
+
+
+<!-- /精美租房 -->
+<view class='jz_hort' bindtap='gengduo'>
+  <view class='hort_x'></view>
+  <view class='hort_text' bindtap='skip'>更多房源</view>
+  <view class='hort_x'></view>
+</view>
+<include src="/template/footer.wxml" />
+</view>
+
+</view>

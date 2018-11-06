@@ -1,0 +1,97 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.shujuyuan{
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 20rpx 0;
+}
+.getUserInfo{
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,.4);
+}
+.getUserInfo_max{
+  width: 250px;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin: 30% auto;
+  border-radius: 10rpx;
+
+}
+.getUserInfo_title{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+.max_body_k{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.getUserInfo_text{
+  font-size: 14px;
+  color: #666;
+  width: 90%;
+  padding: 10px 5%;
+  border-bottom: 1px solid #eee;
+  text-indent: 22px;
+}
+.getUserInfo_botton{
+  width: 100%;
+  height: 50px;
+
+}
+.getUserInfo_botton_two{
+  color: #008200;
+  background: 0;
+}
+.getUserInfo_botton_two::after{
+  border: none;
+}
+.right_lion_left{
+  width: 80%;
+  float: left;
+  font-size:30rpx;
+  height: auto;
+  overflow: hidden;
+        /*文本不换行*/  
+        white-space: nowrap;  
+        /*文字超出用省略号*/  
+        text-overflow:ellipsis;
+}
+.right_lion_right{
+  width:20%;
+  float:left;
+  height:20px;
+
+}
+.right_lion_right text{
+  font-size: 10px;
+  width: 80rpx;
+  height: 80rpx;
+  background: #ddd;
+  display: inline-block;
+  border-radius: 100rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-weight: 100px;
+}

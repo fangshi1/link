@@ -1,0 +1,53 @@
+<!--pages/chaxun/chaxun.wxml  查询-->
+<view class='query_bar'>
+  <view class='query_list_left' bindtap='quedin'>
+    <icon type="search" size="20" color="#000" />
+  </view>
+
+  <view class='query_list_right'>
+    <input placeholder='请输入关键字' bindinput='suosou' bindtap='suosoup' value='{{suosou_val}}'></input>
+  </view>
+</view>
+<view class='box_max'>
+  <view wx:for='{{pres}}' wx:key='kk' data-text='{{item.preX}}' data-id='{{index}}' bindtap='dianji_list'  style="{{index == pid?'color:#76b3de':'color:#222'}}"  class='box_list'>{{item.preX}}</view>
+</view>
+<!-- 数据显示区 -->
+<view class='shop_list'>
+  <!-- 产品渲染区 -->
+  <view wx:for="{{shuju}}" wx:key='list' wx:for-item="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+<view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text' wx:if="{{list.rent=='1'}}">
+        <text class='may'>{{list.price*10000}} 元/月</text>
+      </view>
+      <view class='right_text' wx:else >
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+ 
+  </view>
+  <!-- /产品渲染区 -->
+</view>
+<view class='jiazhaihto' bindtap='dianjijiazai' style='display: {{dianjiyichan}};'>
+  {{jiazaigenduo}}
+</view>
+<!-- 无数据显示 -->
+<view class='shujuyuan' style='display: {{shujuyuan}};'>
+暂无数据
+</view>

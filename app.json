@@ -1,0 +1,61 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/user/user",
+    "pages/user_list/user_list",
+   
+    "pages/listpage/listpage",
+    "pages/register/register",
+    "pages/submission/submission",
+    "pages/collection/collection",
+    "pages/teler/teler",
+    
+    "pages/detaile/detaile",
+    "pages/dester/dester",
+    "pages/admission/admission",
+    "pages/level_details/level_details",
+    "pages/detailed_table/detailed_table",
+    "pages/detailed_about/detailed_about",
+    "pages/level_xianxia/level_xianxia",
+    "pages/level_my/level_my",
+    "pages/agents/agents",
+    "pages/detailed_xianxia/detailed_xianxia",
+    "pages/vr360/vr360",
+    "pages/chaxun/chaxun"
+  ],
+  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#5aa3e0",
+    "borderStyle": "#000",
+    "backgroundColor": "#fafafa",
+    "size": "24rpx",
+    "list": [
+      {
+        "selectedIconPath": "images/home_s.png",
+        "iconPath": "images/home_n.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/house_s.png",
+        "iconPath": "images/house_n.png",
+        "pagePath": "pages/listpage/listpage",
+        "text": "现房"
+      },
+      {
+        "selectedIconPath": "images/user_s.png",
+        "iconPath": "images/user_n.png",
+        "pagePath": "pages/teler/teler",
+        "text": "我的"
+      }
+    ]
+  }
+}

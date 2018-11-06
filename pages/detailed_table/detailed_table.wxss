@@ -1,0 +1,55 @@
+page{
+  background: #f5f5f5;
+}
+.detalis_max{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.detalis_list_title{
+  height: auto;
+  line-height: 40rpx;
+  font-size: 18px;
+  padding: 50rpx 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  width: 95%;
+  margin: 0 2.5%;
+}
+
+.detalis_list{
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 95%;
+  margin: 0 2.5%;
+  font-size: 18px;
+  padding: 20rpx 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.detalis_list_left{
+  float: left;
+  font-size: 16px;
+  padding-left: 20rpx; 
+  color: #666;
+}
+.detalis_list_right{
+  float: right;
+  font-size: 16px;
+  padding-right: 20rpx;
+  color: #999;
+}
+
+.borde{
+  height: 50rpx;
+  width: 100%;
+  text-align: center;
+}
+.borde image{
+  margin: 10rpx 0;
+  height: 30rpx;
+  width: 60rpx;
+}
+

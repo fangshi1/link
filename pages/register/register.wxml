@@ -1,0 +1,30 @@
+<!-- 房源登记 -->
+<view class='max_service'>
+  <view class='service_img'>
+    <image src='../../images/img2.png'></image>
+  </view>
+  <view class='service_text'>
+    <!-- <view class='text_list' id='1' data-text='买房' bindtap='submission'>
+      <image src='../../images/sp_05.png' mode="widthFix"></image>
+      <text>求购</text>
+    </view> -->
+     <view class='text_list' id='2' data-text='卖房' bindtap='submission'>
+      <image src='../../images/sp_08.png' mode="widthFix"></image>
+      <text>卖房</text>
+    </view>
+    <!-- <view class='text_list' id='3' data-text='租房' bindtap='submission'>
+      <image src='../../images/sp_13.png' mode="widthFix"></image>
+      <text>求租</text>
+    </view> -->
+    <view class='text_list' id='4' data-text='出租' bindtap='submission'>
+      <image src='../../images/sp_15.png' mode="widthFix"></image>
+      <text>出租</text>
+    </view>
+  </view>
+
+</view>
+
+
+
+
+

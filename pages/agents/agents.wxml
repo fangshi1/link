@@ -1,0 +1,61 @@
+<!-- 代理 -->
+<view class='agents_max'>
+  <!-- 代理列 -->
+  <view class='agents_max_list' wx:for='{{shuju}}' wx:key='list'>
+    <!-- 头像 -->
+    <view class='agents_max_list_logo'>
+      <view class='agents_max_list_img'>
+        <image src='{{item.avatarurl}}'></image>
+      </view>
+      <view class='agents_max_list_title'>
+        <view wx:if='{{item.level==1}}' class='agents_max_list_rhombus'>
+          一级代理
+        </view>
+        <view wx:else class='agents_max_list_rhombus1'>
+          二级代理
+        </view>
+         <view class='agents_max_list_rhombus_title'>
+         {{item.user}}
+        </view>
+      </view>
+    </view>
+    <!-- /头像 -->
+    <!-- 信息 -->
+    <view class='agents_max_list_text'>
+      <!-- 列 -->
+      <view class='agents_max_list_text_list'>
+        <text class='agents_list_name'>微信昵称：</text>
+        <text class='agents_list_texts'>{{item.nickname}}</text>
+      </view>
+      <!-- 列 -->
+       <!-- 列 -->
+      <view class='agents_max_list_text_list'>
+        <text class='agents_list_name'>联系电话：</text>
+        <text class='agents_list_texts' id='{{item.phone}}' bindtap='calling'>{{item.phone}}</text>
+      </view>
+      <!-- 列 -->
+       <!-- 列 -->
+      <view class='agents_max_list_text_list'>
+        <text class='agents_list_name'>订单量：</text>
+        <text class='agents_list_texts'>{{item.order}}</text>
+      </view>
+      <!-- 列 -->
+       <!-- 列 -->
+      <view class='agents_max_list_text_list'>
+        <text class='agents_list_name'>成交金额：</text>
+        <text class='agents_list_texts'>{{item.money/10000}}万</text>
+      </view>
+      <!-- 列 -->
+    </view>
+    <!-- /信息 -->
+  </view>
+  <!-- /代理列 -->
+
+
+
+
+</view>
+<!-- /代理 -->
+<view class='load_hort' bindtap='load_hort' style='display: {{load_hort1}};'>点击加载更多</view>
+<view class='load_hort' bindtap='load_hort' style='display: {{load_hort2}};'>已加载全部</view>
+<view class='zhangwu' style='display: {{load_hort0}};'>暂无数据</view>

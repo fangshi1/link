@@ -1,0 +1,156 @@
+page {
+  background: #f5f5f5;
+}
+
+.agents_max {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+.agents_max_list {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.agents_max_list_logo {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* background: #fff; */
+ margin-top: 30px;
+ margin: 30px 0 0 0;
+ padding: 0 30px;
+ box-sizing: border-box;
+}
+
+.agents_max_list_img {
+  width: 70px;
+  height: 70px;
+  float: left;
+  background: #fff;
+  border-radius: 100px;
+  border: 1px solid #51bfff;
+  overflow: hidden;
+  position: relative;
+  left: 3px;
+}
+
+.agents_max_list_img image {
+  width: 70px;
+  height: 70px;
+}
+
+.agents_max_list_title {
+  width: 65%;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+
+.agents_max_list_rhombus{
+  width: 50px;
+  height: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 11px;
+  margin-top: 7px;
+}
+.agents_max_list_rhombus1{
+  width: 50px;
+  height: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 11px;
+  margin-top: 7px;
+}
+.agents_max_list_rhombus::before {
+  content: '';
+  position: absolute;
+  left: 105px;
+  height: 20px;
+  width: 70px;
+  background-color: #ff5858;
+  transform: skewX(35deg);
+  z-index: -1;
+}
+.agents_max_list_rhombus1::before {
+  content: '';
+  position: absolute;
+  left: 105px;
+  height: 20px;
+  width: 70px;
+  background-color: #ff9e2b;
+  transform: skewX(35deg);
+  z-index: -1;
+}
+.agents_max_list_rhombus_title{
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  padding-left: 5px;
+  margin-top: 15px;
+}
+.agents_max_list_text{
+  width:100%;
+  background:#fff;
+  height:auto;
+  overflow:hidden;
+  padding:55px 0 20px 0;
+  margin-top:-45px;
+
+}
+.agents_max_list_text_list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.agents_list_name{
+  width: 55%;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  font-size: 14px;
+  text-align: right;
+  color: #999;
+}
+.agents_list_texts{
+  width: 45%;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  font-size: 14px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.load_hort{
+  width:95%;
+  text-align:center;
+  height:80rpx;
+  font-size:28rpx;
+  background:#eee;
+  margin:20rpx 2.5% 20rpx 2.5%;
+  line-height:80rpx;
+  color:#999;
+  border-radius:10rpx;
+
+}
+.zhangwu{
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #999;
+}

@@ -1,0 +1,35 @@
+<!-- 下级详情 -->
+
+<view class='detalis_max'>
+  <!-- 标题 -->
+  <view class='detalis_list_title'>
+    {{shuju.houses_title}}
+  </view>
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>楼盘总价</text>
+    <text class='detalis_list_right'>{{shuju.houses_price}}元</text>
+  </view>
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>交易日期</text>
+    <text class='detalis_list_right'>{{shuju.date}}</text>
+  </view>
+  <!-- 列 -->
+  <!-- <view class='detalis_list'>
+    <text class='detalis_list_left'>推荐人提成点</text>
+    <text class='detalis_list_right'>{{shuju.rate}}</text>
+  </view> -->
+  <!-- 列 -->
+  <!-- <view class='detalis_list'>
+    <text class='detalis_list_left'>应得推荐收益</text>
+    <text class='detalis_list_right'>{{shuju.salary}}元</text>
+  </view> -->
+  
+  <view class='borde'>
+    <image src='../../images/transaction.png'></image>
+  </view>
+</view>
+
+
+

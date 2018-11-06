@@ -1,0 +1,4 @@
+
+<view class="footer_box" style='width: 100%;height: auto;overflow: hidden;text-align: center;'>
+	<view class="border" style='font-size: 20rpx;color: #999;padding: .5rem 0;'>Copyright 鑫创业 技术支持：万鸿信息技术</view>
+</view>

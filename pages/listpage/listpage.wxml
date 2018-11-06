@@ -1,0 +1,115 @@
+<!-- listpage.wxml 查询 -->
+<!--选项卡-->
+
+<view scroll-y="true" class='max_body' style='overflow-y:auto;'>
+<view class="tabTit box tc bg_f">
+	<view class="flexs{{!tab[index]?' active':''}}"  wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
+		<text>{{item}}</text>
+		<image src="/images/arrow.png"></image>
+	</view>
+</view>
+
+<!--筛选项-->
+<view class="tabLayer tc" hidden="{{tab[0]}}">
+  <view  class='tabLayer_tian'>
+  <view class='quangjan'>
+    <text data-id='0' data-text='{{diqu}}' class="{{0 == id?'quyu':''}}"  bindtap='quyu' >全部</text>
+  </view>
+  <view class='tabLayer_left'>
+    <!-- 地区 -->
+    <!-- <text data-id='0' data-text='{{diqu}}' class="{{0 == id1?'quyu':''}}"  bindtap='quyu1' >全部</text> -->
+    <text wx:for='{{tabTxtas}}' data-text='{{item.name}}' wx:key='hh' data-id='{{index+1}}' bindtap='quyu1' class="{{index+1 == id1?'quyu':''}}">{{item.name}}</text>
+  </view>
+  <view class='tabLayer_left'>
+    <!-- 地区 -->
+    <!-- <text data-id='0' data-text='{{diqu2}}' class="{{0 == id2?'quyu':''}}"  bindtap='quyu2' >全部</text> -->
+    <text wx:for='{{tabTxtas_qu}}' data-text='{{item.name}}' wx:key='hh' data-id='{{index+1}}' bindtap='quyu2' class="{{index+1 == id2?'quyu':''}}">{{item.name}}</text>
+  </view>
+  </view>
+</view>
+<view class="tabLayer tc" hidden="{{tab[1]}}">
+<!-- 价格列 -->
+   <view class='tabLayer_tab'>
+    <text id='{{index}}' data-index='{{item.floor}}' data-text='{{item.ceiling}}' class="{{index == did?'price':''}}" wx:for='{{shop_price}}' wx:key='hh' bindtap='shop_price' >{{item.name}}</text>
+    <view class='soso'>
+      <input placeholder='最低价格' bindinput='floor_price' value='{{floor_price}}'></input>
+      <text> - </text>
+      <input placeholder='最高价格' bindinput='ceiling_price' value='{{ceiling_price}}'></input>
+      <text> 万元</text>
+      <view class='anan' data-index='{{floor_price}}' data-text='{{ceiling_price}}' bindtap='determine' >确定</view>
+    </view>
+   </view> 
+   <!-- /价格列 -->
+</view>
+<view class="tabLayer tc" hidden="{{tab[2]}}">
+<!-- 规格 -->
+  <view class='tabLayer_tab'>
+    <text id='0' data-text='' class="{{0 == fid?'price':''}}"  bindtap='shop_specifications' >全部</text>
+    <text id='{{index+1}}' data-text='{{item.detail_name}}' class="{{index+1 == fid?'price':''}}" wx:for='{{shop_specifications}}' wx:key='hh' bindtap='shop_specifications' >{{item.detail_name}}</text>
+   </view> 
+   <!-- /规格 -->
+</view>
+
+<view class="content">
+	<view wx:for="{{data}}" class="pic" bindtap="goDetaile" data-index="{{index}}" wx:key="">
+		<image src="{{item.imgfile_l}}" mode="aspectFill"></image>
+		<view class="des ellipsis">{{item.des}}</view>
+	</view>
+</view>
+<view class="w">
+	<view class="btnBox" wx:if="{{hasMore&&data.length>0}}">
+		<button type="warn" plain="true" disabled="{{disabled}}" bindtap="getMore" class="mt20">{{moreTxt}}</button>
+	</view>
+
+	<!--无数据提示-->
+	<view class="null tc" wx:if="{{dataNull&&data.length==0}}">
+		<icon type="clear" size="100" color="#ccc"/>
+		<view class="txt1">当前筛选无结果</view>
+		<view class="txt2">您可以尝试筛选其他分类看看</view>
+	</view>
+</view>
+<!-- <scroll-view class='shop_list' scroll-top="{{scrollTop}}" style="height: {{kong}};" scroll-y="true"  bindscrolltolower="{{pullUpLoad}}" > -->
+<view class='kandata'>数据加载中...</view>
+<scroll-view class='shop_list'  scroll-top="{{scrollTop}}" style="height: {{kong}};" scroll-y="true">
+  <!-- 数据 -->
+  <!-- 产品渲染区 -->
+  <view wx:for="{{shuju}}" wx:for-item="list" wx:key="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+      <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view>
+      <view class='right_centers'>{{list.show}}</view>
+      <view class='right_centers'>楼盘：{{list.houses}}</view>
+      <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:for-item="lift" wx:key="list" class='right_biao'>{{lift}}</view>
+      </view>
+      <view class='right_text' wx:if="{{list.rent=='1'}}">
+        <text class='may'>{{list.price*10000}} 元/月</text>
+      </view>
+      <view class='right_text' wx:else >
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+
+<view class='jiazhaihto' bindtap='dianjijiazai' style='display: {{dianjiyichan}};'>
+  {{jiazaigenduo}}
+</view>
+<view class='shujuyuan' style='display: {{shujuyuan}};'>
+暂无数据
+</view>
+  </scroll-view>
+  <!-- /产品渲染区 -->
+<!-- /数据 -->
+
+<!-- </scroll-view> -->
+ </view>

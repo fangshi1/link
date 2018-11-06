@@ -1,0 +1,54 @@
+<!-- 下级详情 -->
+
+<view class='detalis_max'>
+  <!-- 标题 -->
+  <view class='detalis_list_title'>
+    {{shuju.houses_title}}
+  </view>
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>购买人</text>
+    <text class='detalis_list_right'>{{shuju.user}}</text>
+  </view>
+  <!-- 列 -->
+   <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>购买人电话</text>
+    <text class='detalis_list_right'>{{shuju.phone}}</text>
+  </view>
+  <!-- 列 -->
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>楼盘总价</text>
+    <text class='detalis_list_right'>{{shuju.houses_price}}元</text>
+  </view>
+  <!-- 列 -->
+   <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>提成点</text>
+    <text class='detalis_list_right'>{{shuju.deduct}}</text>
+  </view>
+  <!-- 列 -->
+    <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>所获提成</text>
+    <text class='detalis_list_right'>{{shuju.num}}</text>
+  </view>
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='detalis_list_left'>交易日期</text>
+    <text class='detalis_list_right'>{{shuju.date}}</text>
+  </view>
+ 
+  <!-- <view class='detalis_list'>
+    <text class='detalis_list_left'>应得推荐收益</text>
+    <text class='detalis_list_right'>{{shuju.salary}}元</text>
+  </view> -->
+  
+  <view class='borde'>
+    <image src='../../images/transaction.png'></image>
+  </view>
+</view>
+
+
+

@@ -1,0 +1,100 @@
+.detalis_max{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.detalis_list{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.line{
+  height: 20rpx;
+  width: 100%;
+  background: #f5f5f5;
+}
+.lefts{
+  float: left;
+  line-height: 80rpx;
+  font-size: 16px;
+  padding-left: 30rpx;
+}
+.rights{
+  float: right;
+  line-height: 80rpx;
+  font-size: 14px;
+  padding-right: 30rpx;
+  color: #5aa3e0;
+}
+.detalis_list_title{
+  width: 95%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #5aa3e0;
+  margin: 0 2.5%;
+  border-bottom:1px solid #ccc;
+}
+.record{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.arrow{
+  width: 25rpx;
+  height: 25rpx;
+}
+.record_list{
+  width: 95%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 2.5%;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #ccc; 
+}
+.record_list_text{
+  width: 100%;
+  height: 50rpx;
+}
+.record_list_text_title{
+  width: 85%;
+  float: left;
+  line-height: 50rpx;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.record_list_text_ico{
+  width: 15%;
+  float: left;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: right;
+}
+.record_list_text_ico image{
+  /* float: right; */
+  line-height: 50rpx;
+  padding-right: 20rpx;
+}
+.record_list_time{
+  font-size: 13px;
+  padding-left: 20rpx;
+  color: #999;
+}
+
+.transaction{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+
+
+
+

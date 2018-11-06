@@ -1,0 +1,97 @@
+<!-- 房源登记 -->
+
+<!-- 初始 -->
+<view class='max_service' style='display: {{y1_hide}};'>
+  <view class='service_text'>
+    <view class='text_list'>
+      <view class='lift_left'>
+        <text class='fang'>姓</text>
+        <text>名 :</text>
+      </view>
+      <view class='lift_right'>
+        <input bindinput='xm' type='text' placeholder=''></input>
+      </view>
+    </view>
+
+    <view class='text_list'>
+      <view class='lift_left'>
+        <text class='fang'>电</text>
+        <text>话 :</text>
+      </view>
+      <view class='lift_right'>
+        <input bindinput='dh' type='number' placeholder=''></input>
+      </view>
+    </view> 
+
+    <view class='text_list' style='display:none'>
+        <view class='lift_left'>
+        <text>推荐码 :</text>
+        </view>
+        
+        <view class='lift_right'>
+          <input bindinput='fx' type='text' placeholder='' value='{{tuijian}}'></input>
+        </view>
+      </view> 
+    </view>
+    <view class='text_lists' style='display:none'>
+        此推荐码为你的上级分享码
+    </view>
+ <view class='tijiao' bindtap='fabu'>提交申请</view>
+</view>
+<!-- /初始 -->
+<!-- 入驻成功--有下级 -->
+
+ <view class='header_now' style='display: {{y2_hide}};'>
+    <view class='header_left'>
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
+      <view class='header_right'><open-data type="userNickName" lang="zh_CN"></open-data></view>
+    <button class='header_suaxin' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <image src='../../images/shuaxin.jpg'></image>
+      {{personInfoname}}
+    </button>
+    <view class='fengxiang'>分享码：{{sharing}}</view>
+    <!-- <view class='fengxiang'>总收益：<text class='yangshi'>{{num_money}}</text> 元</view> -->
+  </view>
+
+<view class='kan_k' style='display: {{y2_hide}};'>我的下线</view>
+<view class='admission_success success' style='display: {{y2_hide}};'>
+    <view class='text_yi' id='1' data-text='{{item.code}}' data-index='{{item.nickname}}' data-id='一级下线' wx:for="{{shuju1}}" wx:key="list" bindtap='lower_level_details'>
+      <text>{{item.nickname}}</text>
+      <view class='float_right'><image class='arrow' src='../../images/right.png'></image></view>
+    </view>
+</view>
+<view class='xiala' bindtap='zhangshi1' style='display: {{y4_hide}};'><image src='../../images/liala.png' mode="widthFix"></image></view>
+<view class='xiangtiao' style='display: {{y2_hide}};'></view>
+ <view class='kan_k' style='display: {{y6_hide}};'>二级下线</view>
+ <view class='admission_success success' style='display: {{y2_hide}};'>
+    <view class='text_yi' id='2' data-text='{{item.code}}' data-index='{{item.nickname}}' data-id='二级下线'  wx:for="{{shuju2}}" wx:key="list" bindtap='lower_level_details'>
+      <text>{{item.nickname}}</text>
+      <view class='float_right'><image class='arrow' src='../../images/right.png'></image></view>
+    </view>
+</view>
+<view class='xiala' bindtap='zhangshi2' style='display: {{y5_hide}};'><image src='../../images/liala.png' mode="widthFix"></image></view>
+<!-- /入驻成功--有下级 -->
+
+<!-- /入驻成功--无下级 -->
+ <view class='header_now' style='display: {{y3_hide}};'>
+    <view class='header_left'>
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
+      <view class='header_right'><open-data type="userNickName" lang="zh_CN"></open-data></view>
+    <button class='header_suaxin' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <image src='../../images/shuaxin.jpg'></image>
+      {{personInfoname}}
+    </button>
+    <view class='fengxiang'>分享码：{{sharing}}</view>
+    <!-- <view class='fengxiang'>总收益：<text class='yangshi'>{{num_money}}</text> 元</view> -->
+  </view>
+
+<view class='kan_k' style='display: {{y3_hide}};'>我的下线</view>
+<view class='admission_error' style='display: {{y3_hide}};'>
+      <image src='../../images/wuxj.png' mode="widthFix"></image>
+</view>
+<view class='no_downline' style='display: {{y3_hide}};'>我还没有下线</view>
+<!-- /入驻成功--无下级 -->
+
+

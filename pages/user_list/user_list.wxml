@@ -1,0 +1,22 @@
+<!--pages/user_list/user_list.wxml-->
+<view class='header_now'>
+    <view class='header_left'>
+      <image src='{{shuju.pic}}' mode='widthFix'></image>
+    </view>
+      <view class='header_right'>
+        <text class='user_name'>{{shuju.name}}</text> 
+        <text class='user_ltitle'>{{shuju.info}}</text>
+      </view>
+    <view class='fengxiang'>
+      <image class='phone' mode='widthFix' src='../../images/phone.png'></image><text class='yangshi'>{{shuju.phone}}</text>
+    </view>
+</view>
+<view class='user_desc'>
+  <view class='user_desc_list'>
+    自我介绍
+  </view>
+  <view class='user_desc_text'>
+   {{shuju.desc}}
+  </view>
+</view>
+

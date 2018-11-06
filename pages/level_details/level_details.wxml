@@ -1,0 +1,47 @@
+<!-- 下级详情 -->
+
+<view class='detalis_max'>
+<!-- 线 -->
+  <view class='line'></view>
+  <!-- 列 -->
+  <view class='detalis_list'>
+    <text class='lefts'>{{names}}</text>
+    <text class='rights'>{{name_id}}</text>
+  </view>
+  <!-- 线 -->
+ <view class='line'></view>
+  <!-- 列 -->
+ <view class='detalis_list'>
+    <text class='lefts'>可获收益</text>
+    <text class='rights'>￥{{num_money}}</text>
+ </view>
+  <!-- 线 -->
+ <view class='line'></view>
+  <!-- 列 -->
+ <view class='detalis_list_title'>成交记录</view>
+  <!-- 成交记录 -->
+  <view class='record'>
+    <!-- 记录列表 -->
+    <view class='record_list' data-id='{{jibie}}' id='{{item.id}}' bindtap='detailed_table' wx:for='{{shuju}}' wx:key="{{list}}">
+      <view class='record_list_text'>
+        <view class='record_list_text_title'>{{item.houses_title}}</view>
+        <view class='record_list_text_ico'><image class='arrow' src='../../images/right.png'></image></view>
+      </view>
+      <view class='record_list_time'>
+        {{item.date}}
+      </view>
+    </view>
+    
+  </view>
+  <!-- 无交易记录 -->
+  <view class='transaction' style='display:{{transaction}}'>
+    <image src='../../images/wuxj.png' mode="widthFix"></image>
+  </view>
+  <view class='transaction' style='display:{{transaction}}'>
+    无交易记录
+  </view>
+  <!-- /无交易记录 -->
+</view>
+
+
+

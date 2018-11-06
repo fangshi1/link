@@ -1,0 +1,25 @@
+<!--pages/user/user.wxml-->
+<view class='user_max'>
+<!-- 列 -->
+  <view class='user_list' wx:for="{{shuju}}" wx:key="list" id='{{item.id}}' bindtap='user_list'>
+    <view class='user_img'>
+      <image src='{{item.pic}}' mode='widthFix'></image>
+    </view>
+    <view class='user_title'>
+      <view class='user_title_text'>
+        {{item.name}}
+      </view>
+      <view class='user_title_desc'>
+         {{item.info}}
+      </view>
+    </view>
+    <view class='user_go'>
+      <image class='arrow' src='../../images/right.png'></image>
+    </view>
+  </view>
+  <!-- 列 -->
+
+</view>
+<!-- 弹框 -->
+
+

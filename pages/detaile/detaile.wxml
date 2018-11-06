@@ -1,0 +1,171 @@
+<view class='max_body_k' style='height:{{body_height}}'>
+<include src="/template/getUserInfo.wxml" />
+<view class='return_' style='display:{{return_}};' bindtap='return_'>返回首页</view>
+<view class='bow_body'>
+  <!--  详情页面  -->
+  <!--轮播图-->
+  <view class="swiper-container">
+    <swiper autoplay="{{autoplay}}" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+
+      <block wx:for="{{slider}}" wx:key="unique">
+        <swiper-item>
+          <image src="{{item}}" bindtap="imgYu" data-list="{{item}}" data-src="{{slider}}" class="img"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}">{{index+1}} / {{t_length}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='vr360' bindtap='vr360' style='display: {{vr_360}};'>
+    <image class='vr_logo' src='../../images/vr_logo.png'></image>
+    <text class='vr_text'>VR</text>
+  </view>
+  <!--产品名-->
+  <view class='shop_header'>
+    <view class='shop_title'>
+      {{loat.detail.name}}
+    </view>
+    <view class='shop_collection' data-text='{{collection}}' bindtap='shochang'>
+      <view class='collection_img'>
+        <image src='../../images/{{collection}}.png'></image>
+      </view>
+      <view class='collection_text'>
+        {{shotext}}
+      </view>
+    </view>
+  </view>
+  <!-- 房子价格 -->
+  <view class='shop_offer' wx:if="{{loat.detail.rent=='1'}}">
+    <view class='offer_text'>
+      <text style='font-size: 60rpx;'>{{loat.detail.price*10000}}</text>
+      <text style='font-size: 30rpx;'>元/月</text>
+    </view>
+  </view>
+
+  <view class='shop_offer'  wx:else>
+     <view class='offer_text'>
+      <text style='font-size: 60rpx;'>￥{{loat.detail.price}}</text>
+      <text style='font-size: 30rpx;'>万</text>
+    </view>
+    <view class='offer_text_list'>
+      <view class='offer_text_list_title'><text class='offerof'>单价：</text>{{loat.detail.oprice}}元/m
+        <text class='pingfang'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- 房子规格 -->  
+  <view class='shop_specifications'>
+    <view class='specifications_list'>
+      <text class='offerof'>户型：</text>{{huxing}}
+    </view>
+    <view class='specifications_list'>
+      <text class='offerof'>建筑面积：</text>{{loat.detail.built}}m
+      <text class='pingfang'>2</text>
+    </view>
+    <view class='specifications_list'>
+      <text class='offerof'>朝向：</text>{{direction}}
+    </view>
+  </view>
+  <view class='biaoqiangs'>
+    <view wx:for="{{loat.detail.click.label}}" wx:key="list" wx:for-item="lift" class='right_biaos'>{{lift}}</view>
+  </view>
+  <!-- 标题栏 -->
+  <view class='list_term'>
+    <view class='term_u'></view>
+    <view class='term_text'>房源详情</view>
+    <view class='term_more' bindtap='map_call'>查看地图 ></view>
+  </view>
+  <view class='specifications_max'>
+    <view class='max_biaoqian'>
+      <view class='biaoqian_list' wx:for="{{loat.detail.tags}}" wx:key="list">
+        <text class='list_name'>{{item.key}}</text>
+        <text class='list_f'>：</text>
+        <text class='list_text'>{{item.val}}</text>
+      </view>
+      
+    </view>
+  </view>
+
+  <view class='shop_describe'>
+    {{loat.detail.show}}
+  </view>
+<!-- 标题栏 -->
+  <view class='list_term'>
+    <view class='term_u'></view>
+    <view class='term_text'>周边配套</view>
+    <view class='term_more'> </view>
+  </view>
+  <view class='specifications_max'>
+    <view class='max_biaoqian'>
+
+      <!-- <view wx:if="{{list.key == ''}}" wx:for="{{loat.detail.descr}}" wx:key="list" wx:for-item="list" class='biaoqian_lists'>
+      </view> -->
+       <view wx:for="{{loat.detail.descr}}" wx:key="list" wx:for-item="list" class='biaoqian_lists'>
+        <text class='list_name' wx:if="{{list.key != ''}}">{{list.key}}：</text>
+        <text class='list_text' wx:if="{{list.val != ''}}">{{list.val}}</text>
+      </view>
+
+    </view>
+  </view>
+  <!-- 标题栏 -->
+  <view class='list_term'>
+    <view class='term_u'></view>
+    <view class='term_text'>周边推荐</view>
+    <view class='term_more'> </view>
+  </view>
+  <view class='shop_list'>
+  
+<!-- 产品渲染区 -->
+  <view wx:for="{{loat.zbxf}}" wx:for-item="list" wx:key="list" class='shop_exhibition' bindtap='shop_dian' id='{{list.id}}'>
+    <view class='exhibition_left'>
+      <image src='{{list.pic}}'></image>
+    </view>
+    <view class='exhibition_right'>
+      <view class='right_lion'>
+        <view class='right_lion_left'>{{list.name}}</view>
+        <view class='right_lion_right' wx:if="{{list.sold=='1'}}"><text>已售出</text></view>
+      </view>
+       <view class='right_center'>{{list.tags}} | {{list.built}}m
+        <text class='pingfang'>2</text>
+      </view> 
+       <view class='right_centers'>{{list.show}}</view> 
+       <view class='biaoqiang'>
+        <view wx:for="{{list.click}}" wx:key="list" wx:for-item="lift" class='right_biao'>{{lift}}</view>
+      </view> 
+      <view class='right_text' wx:if="{{list.rent=='1'}}">
+        <text class='may'>{{list.price*10000}} 元/月</text>
+      </view>
+      <view class='right_text' wx:else >
+        <text class='may'>{{list.price}}万 </text>
+        <text class='may_text'>{{list.oprice}}元/m</text>
+        <text style='position: relative;top: -5px;font-size:15rpx;color:#999;'>2</text>
+      </view>
+    </view>
+  </view>
+  <!-- /产品渲染区 -->
+
+
+
+</view>
+
+  
+  <include src="../../template/footer.wxml" />
+</view>
+<!-- 业主信息 底部导航-->
+<view class='mo_footer'>
+  <view class='footer_img'>
+    <image src='../../images/kefu.png'></image>
+  </view>
+  <view class='footer_name'>
+    <text>{{loat.detail.attr.attr_p}}</text>
+    <text>{{loat.detail.attr.attr_u}}</text>
+  </view>
+  <view class='footer_text1' bindtap='calling'>咨询经纪人</view>
+  <view class='footer_text2'><button open-type='share'>分享</button></view>
+</view>
+
+</view>
